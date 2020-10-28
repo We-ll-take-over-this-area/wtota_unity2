@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boss body
   - Boss Arm
+  - Boss Attack Arm
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Platform
   - Boss body
   - Boss arm
-  - 
+  - Boss Attack Arm
   - 
   - 
   - 
