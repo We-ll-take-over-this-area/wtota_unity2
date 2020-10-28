@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class LeftArm : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Transform thisTransform;
+
     void Start()
     {
-        
+        thisTransform = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.x < 12.5)
+            transform.position = new Vector2(transform.position.x + 0.025f, transform.position.y);
+
     }
 }
