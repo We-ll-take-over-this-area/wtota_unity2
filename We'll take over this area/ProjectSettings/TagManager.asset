@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Boss body
+  - Boss Arm
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - 
   - 
   - Platform
-  - 
-  - 
+  - Boss body
+  - Boss arm
   - 
   - 
   - 
@@ -46,6 +48,9 @@ TagManager:
     locked: 0
   - name: Boss
     uniqueID: 2672835037
+    locked: 0
+  - name: Arms
+    uniqueID: 3664007013
     locked: 0
   - name: Character
     uniqueID: 2548374975
