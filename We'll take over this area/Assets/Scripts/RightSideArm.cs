@@ -36,5 +36,15 @@ public class RightSideArm : MonoBehaviour
         {
             start = false;
         }
+        /*
+        //다시 돌아오는 레이케스트 (공용)
+        Debug.DrawRay(new Vector2(20, -1), Vector2.left, new Color(0, 1, 0));
+        RaycastHit2D combackRay = Physics2D.Raycast(new Vector2(20, -1), Vector3.left, 1, LayerMask.GetMask("Boss Attack Arm"));
+
+        //원래대로
+        if (combackRay.collider != null)
+        {
+            transform.position = new Vector2(-13.23f, -1.3f);
+        }*/
     }
 }
