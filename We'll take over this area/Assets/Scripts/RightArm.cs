@@ -38,8 +38,8 @@ public class RightArm : MonoBehaviour
         }
 
         //다시 돌아오는 레이케스트 (공용)
-        Debug.DrawRay(new Vector2(20, -1), Vector2.left, new Color(0, 1, 0));
-        RaycastHit2D combackRay = Physics2D.Raycast(new Vector2(20, -1), Vector3.left, 1, LayerMask.GetMask("Boss Attack Arm"));
+        Debug.DrawRay(new Vector2(10, -1), Vector3.up, new Color(2, 0, 0));
+        RaycastHit2D combackRay = Physics2D.Raycast(new Vector2(-10, -1), Vector3.up, 1, LayerMask.GetMask("Boss Attack Arm"));
 
         //아래로 내려감
         if (combackRay.collider != null)
