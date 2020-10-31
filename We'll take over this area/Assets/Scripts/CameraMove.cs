@@ -11,6 +11,7 @@ public class CameraMove : MonoBehaviour
     void Awake()
     {
         Player = GameObject.Find("Player");
+        Application.targetFrameRate = 100;
     }
 
     void Update()
