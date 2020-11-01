@@ -5,6 +5,8 @@ using UnityEngine;
 public class LeftArm : MonoBehaviour
 {
     Transform thisTransform, playerOldTransform;
+    Animator anim;
+    public Animator explosionAnim;
     public GameObject Player;
     public bool readyAttack, comback, playerOldTransformChecked, moved;
     private int pattern;
@@ -15,6 +17,7 @@ public class LeftArm : MonoBehaviour
     {
         Player = GameObject.Find("Player");
         thisTransform = GetComponent<Transform>();
+        anim = GetComponent<Animator>();
         readyAttack = true;
         comback = false;
         playerOldTransformChecked = false;
@@ -24,7 +27,7 @@ public class LeftArm : MonoBehaviour
 
     void Update()
     {
-        if (pattern == 0 && readyAttack)
+        if (pattern == 0)
         {
             pattern = Random.Range(1, 3);
             Debug.Log(pattern);
@@ -70,20 +73,23 @@ public class LeftArm : MonoBehaviour
         }
         if (pattern == 2) // 패턴 2
         {
+            anim.SetBool("Pattern2", true);
             //왼팔 야무지게 들어 올리는 모션
             if (transform.rotation.z > -0.8660254 && readyAttack)
             {
                 transform.Rotate(0, 0, -Time.deltaTime * rotateSpeed, Space.Self);
                 transform.position = new Vector2(transform.position.x, transform.position.y + 0.015f);
             }
-            else readyAttack = false;
-
+            else
+            {
+                readyAttack = false;
+            }
+            
             /*실시간으로 내려찍는 모션
             if (transform.position.y > -1.3)
             {
                 transform.position = new Vector2(transform.position.x + ((Player.transform.position.x - transform.position.x) / 50), transform.position.y + (-1.3f / 500));
             }*/
-
             //플레이어 순간 위치 저장
             if (!playerOldTransformChecked && !readyAttack && !moved)
             {
@@ -100,13 +106,19 @@ public class LeftArm : MonoBehaviour
                 {
                     transform.position = new Vector2(transform.position.x + ((playerX - transform.position.x) / 50), transform.position.y);
                 }
-                else if (-1.2 < transform.position.y)
+                else if (-1.5 < transform.position.y)
                 {
                     transform.position = new Vector2(transform.position.x, transform.position.y + (-1.3f / 20));
+                    if (transform.rotation.z < -0.5150381)
+                    {
+                        Debug.Log("Check");
+                        transform.Rotate(0, 0, Time.deltaTime * rotateSpeed * 1.5f, Space.Self);
+                    } else explosionAnim.SetBool("Boom", true);
                 }
-                else if (-1.2 > transform.position.y && transform.position.y > -1.3)
+                else if (-1.5 > transform.position.y && transform.position.y > -1.6)
                 {
-                    transform.position = new Vector2(transform.position.x, transform.position.y + (-1.3f / 2000));
+                    explosionAnim.SetBool("Boom", false);
+                    transform.position = new Vector2(transform.position.x, transform.position.y + (-1.3f / 2000));                    
                 }
                 else
                 {
@@ -117,9 +129,10 @@ public class LeftArm : MonoBehaviour
 
             if (!readyAttack && moved)
             {
-                if (transform.rotation.z < 0.06391054)
+                if (transform.rotation.z < 0.06391054 || Mathf.Abs(transform.position.x - 4.37f) > 0.01 || Mathf.Abs(transform.position.y - 0.16f) > 0.01)
                 {
-                    transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
+                    if(transform.rotation.z < 0.06391054)
+                        transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
                     if (Mathf.Abs(transform.position.x - 4.37f) > 0.01)
                         transform.position = new Vector2(transform.position.x + (4.37f - transform.position.x) / 50, transform.position.y);
                     if (Mathf.Abs(transform.position.y - 0.16f) > 0.01)
@@ -127,6 +140,7 @@ public class LeftArm : MonoBehaviour
                 }
                 else
                 {
+                    anim.SetBool("Pattern2", false);
                     pattern = 0;
                     readyAttack = true;
                     moved = false;
