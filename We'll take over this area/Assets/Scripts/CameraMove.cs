@@ -22,6 +22,10 @@ public class CameraMove : MonoBehaviour
             transform.position = new Vector3((-1)*limitX, 0, -10);
         else
             transform.position = new Vector3(Player.transform.position.x, 0, -10);
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private void FixedUpdate()

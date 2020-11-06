@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 366190802}
   - component: {fileID: 366190803}
   - component: {fileID: 366190804}
+  - component: {fileID: 366190806}
   - component: {fileID: 366190805}
   m_Layer: 0
   m_Name: Adittional Attack Effect
@@ -565,7 +566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366190800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.15, y: -0.78, z: 0}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -652,8 +653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af13f65c88e79c46b2944b67823ec22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!68 &366190805
-EdgeCollider2D:
+--- !u!61 &366190805
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -665,16 +666,40 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.2651251, y: -0.07824254}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4697498, y: 0.15779161}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.0347178, y: -0.012924612}
-  - {x: -0.038898826, y: -0.08223897}
-  - {x: -0.09776807, y: -0.12731397}
-  - {x: -0.31689793, y: -0.15725595}
-  - {x: -0.5011402, y: -0.12222731}
-  - {x: -0.50967985, y: -0.0063764453}
-  - {x: -0.034213066, y: -0.008616328}
+--- !u!50 &366190806
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366190800}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,8 +1608,8 @@ GameObject:
   - component: {fileID: 1440439221}
   - component: {fileID: 1440439220}
   - component: {fileID: 1440439222}
-  - component: {fileID: 1440439224}
   - component: {fileID: 1440439223}
+  - component: {fileID: 1440439224}
   m_Layer: 9
   m_Name: Boss
   m_TagString: Boss body
@@ -1650,7 +1675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440439219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.31, y: 0.11, z: -3.8000834}
+  m_LocalPosition: {x: 2.31, y: 0.11, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1687,8 +1712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8b2619bc131524da4786b390c4e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!68 &1440439224
-EdgeCollider2D:
+--- !u!58 &1440439224
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1700,18 +1725,9 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.12083285, y: 0.31129238}
-  - {x: -0.06159973, y: 0.35278878}
-  - {x: 0.057795476, y: 0.3570277}
-  - {x: 0.11617179, y: 0.28975984}
-  - {x: 0.118998766, y: 0.22225213}
-  - {x: 0.05042267, y: 0.17357925}
-  - {x: -0.08042069, y: 0.17487906}
-  - {x: -0.12912805, y: 0.22357558}
-  - {x: -0.12570706, y: 0.30585685}
+  m_Offset: {x: -0.004813004, y: 0.2565689}
+  serializedVersion: 2
+  m_Radius: 0.1403575
 --- !u!1 &1515870387
 GameObject:
   m_ObjectHideFlags: 0

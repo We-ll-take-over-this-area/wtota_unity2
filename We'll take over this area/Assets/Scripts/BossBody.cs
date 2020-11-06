@@ -5,18 +5,26 @@ using UnityEngine;
 public class BossBody : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    void Start() 
+    Collider2D thisCollider;
+
+    void Awake() 
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    void OnCollisionEnter2D(Collision2D collision)
+
+    private void FixedUpdate()
     {
-        if (collision.gameObject.tag == "Sword")
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Sword")
         {
-            OnDamaged();
             Debug.Log("Boss hit");
+            OnDamaged();
         }
     }
+
     void OnDamaged()
     {
         //피격시 레이어 변경(반투명 스프라이트 및 물리 무시)
@@ -26,6 +34,7 @@ public class BossBody : MonoBehaviour
 
         Invoke("OffDamaged", 1.5f);
     }
+
     void OffDamaged()
     {
         spriteRenderer.color = new Color(1, 1, 1, 1);
