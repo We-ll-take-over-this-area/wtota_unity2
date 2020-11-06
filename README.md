@@ -1,2 +1,2 @@
 # wtota_unity2
-새로 판 Repository 입니다.
+유니티 프로젝트 파일을 보관하는 Repository 입니다.
