@@ -7,6 +7,7 @@ TagManager:
   - Boss body
   - Boss Arm
   - Boss Attack Arm
+  - Sword
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Boss Attack Arm Left
   - Boss Attack Arm Right
   - Boss Crash Arm
-  - 
+  - Player Hit
   - 
   - 
   - 

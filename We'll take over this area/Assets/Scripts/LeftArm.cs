@@ -111,7 +111,7 @@ public class LeftArm : MonoBehaviour
                     transform.position = new Vector2(transform.position.x, transform.position.y + (-1.3f / 20));
                     if (transform.rotation.z < -0.5150381)
                     {
-                        Debug.Log("Check");
+                        
                         transform.Rotate(0, 0, Time.deltaTime * rotateSpeed * 1.5f, Space.Self);
                     } else explosionAnim.SetBool("Boom", true);
                 }
